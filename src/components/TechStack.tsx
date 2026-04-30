@@ -10,6 +10,8 @@ import {
   CylinderCollider,
   RapierRigidBody,
 } from "@react-three/rapier";
+import { TECH_STACK, THEME } from "../constants";
+import "./styles/TechStack.css";
 
 const textureLoader = new THREE.TextureLoader();
 const imageUrls = [
@@ -151,24 +153,36 @@ const TechStack = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   const materials = useMemo(() => {
     return textures.map(
       (texture) =>
         new THREE.MeshPhysicalMaterial({
           map: texture,
-          emissive: "#ffffff",
+          emissive: "#00d4ff",
           emissiveMap: texture,
-          emissiveIntensity: 0.3,
-          metalness: 0.5,
-          roughness: 1,
-          clearcoat: 0.1,
+          emissiveIntensity: 0.5,
+          metalness: 0.6,
+          roughness: 0.8,
+          clearcoat: 0.2,
         })
     );
   }, []);
 
   return (
     <div className="techstack">
-      <h2> My Techstack</h2>
+      <h2>NextGen Tech Stack</h2>
+      <div className="tech-stack-grid">
+        {TECH_STACK.map((tech) => (
+          <div key={tech.name} className="tech-item">
+            <div className="tech-icon">
+              <img src={tech.image} alt={tech.name} />
+            </div>
+            <h3>{tech.name}</h3>
+            <p>{tech.category}</p>
+          </div>
+        ))}
+      </div>
 
       <Canvas
         shadows
@@ -177,16 +191,16 @@ const TechStack = () => {
         onCreated={(state) => (state.gl.toneMappingExposure = 1.5)}
         className="tech-canvas"
       >
-        <ambientLight intensity={1} />
+        <ambientLight intensity={1.2} />
         <spotLight
           position={[20, 20, 25]}
           penumbra={1}
           angle={0.2}
-          color="white"
+          color="#00d4ff"
           castShadow
           shadow-mapSize={[512, 512]}
         />
-        <directionalLight position={[0, 5, -4]} intensity={2} />
+        <directionalLight position={[0, 5, -4]} intensity={2.5} color="#b800e6" />
         <Physics gravity={[0, 0, 0]}>
           <Pointer isActive={isActive} />
           {spheres.map((props, i) => (
@@ -200,11 +214,11 @@ const TechStack = () => {
         </Physics>
         <Environment
           files="/models/char_enviorment.hdr"
-          environmentIntensity={0.5}
+          environmentIntensity={0.8}
           environmentRotation={[0, 4, 2]}
         />
         <EffectComposer enableNormalPass={false}>
-          <N8AO color="#0f002c" aoRadius={2} intensity={1.15} />
+          <N8AO color="#1a0b2e" aoRadius={2} intensity={1.5} />
         </EffectComposer>
       </Canvas>
     </div>

@@ -1,5 +1,6 @@
 import { PropsWithChildren } from "react";
 import "./styles/Landing.css";
+import { BRAND } from "../constants";
 
 const Landing = ({ children }: PropsWithChildren) => {
   return (
@@ -7,22 +8,23 @@ const Landing = ({ children }: PropsWithChildren) => {
       <div className="landing-section" id="landingDiv">
         <div className="landing-container">
           <div className="landing-intro">
-            <h2>Hello! I'm</h2>
+            <h2>Welcome to</h2>
             <h1>
-              MONCY
+              NEXTGEN
               <br />
-              <span>YOHANNAN</span>
+              <span>WEB AGENCY</span>
             </h1>
+            <p className="landing-subtitle">{BRAND.tagline}</p>
           </div>
           <div className="landing-info">
-            <h3>A Creative</h3>
+            <h3>Founded by</h3>
             <h2 className="landing-info-h2">
-              <div className="landing-h2-1">Designer</div>
-              <div className="landing-h2-2">Developer</div>
+              <div className="landing-h2-1">{BRAND.founder}</div>
+              <div className="landing-h2-2">{BRAND.role}</div>
             </h2>
             <h2>
-              <div className="landing-h2-info">Developer</div>
-              <div className="landing-h2-info-1">Designer</div>
+              <div className="landing-h2-info">{BRAND.location}</div>
+              <div className="landing-h2-info-1">Premium Development</div>
             </h2>
           </div>
         </div>
