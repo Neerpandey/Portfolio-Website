@@ -47,7 +47,7 @@ export const PROJECTS = [
     tools: ["React", "Firebase", "Wallet Integration", "Real-time DB", "Admin Dashboard"],
     color: "#FF6B6B",
     liveUrl: "https://firebattle-demo.vercel.app",
-    image: "/images/firebattle.webp",
+    image: "/images/firebattle.jpg",
   },
   {
     id: 2,
@@ -59,7 +59,7 @@ export const PROJECTS = [
     tools: ["React", "Three.js", "Tailwind CSS", "Dynamic Pricing", "Booking System"],
     color: "#4ECDC4",
     liveUrl: "https://neeralingx-garage.vercel.app",
-    image: "/images/neeraling.webp",
+    image: "/images/neeraling.jpg",
   },
   {
     id: 3,
@@ -71,7 +71,7 @@ export const PROJECTS = [
     tools: ["React", "AI Integration", "Device Fingerprinting", "Credit System", "v0.dev"],
     color: "#B800E6",
     liveUrl: "https://neer-ai-demo.vercel.app",
-    image: "/images/neer-ai.webp",
+    image: "/images/neer-ai.jpg",
   },
 ];
 
